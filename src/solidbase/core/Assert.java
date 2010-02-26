@@ -27,6 +27,14 @@ import org.apache.commons.lang.StringUtils;
 public class Assert
 {
 	/**
+	 * This utility class cannot be constructed.
+	 */
+	private Assert()
+	{
+		super();
+	}
+
+	/**
 	 * Asserts that the <code>test</code> argument is <code>true</code>. If not, it throws an
 	 * {@link AssertionFailedException}.
 	 * 
@@ -62,6 +70,8 @@ public class Assert
 	 *            Test argument.
 	 * @param errorMessage
 	 *            The error message.
+	 * @param linenumber
+	 *            The line number to show in the error message.
 	 */
 	static public void isTrue( boolean test, String errorMessage, int linenumber )
 	{
@@ -126,6 +136,14 @@ public class Assert
 	static public void fail( String errorMessage )
 	{
 		throwAssertionFailure( errorMessage, 2 );
+	}
+
+	/**
+	 * Throws an {@link AssertionFailedException}.
+	 */
+	static public void fail()
+	{
+		throwAssertionFailure( null, 2 );
 	}
 
 	/**
